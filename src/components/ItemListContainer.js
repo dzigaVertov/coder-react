@@ -1,9 +1,23 @@
 import React from 'react'
+import GridProductos from './GridProductos'
+import {useEffect, useState} from 'react'
+
+
 
 export default function ItemListContainer(props) {
+
+  const [listaProductos, setListaProductos] = useState();
+
+  useEffect( () => {
+    console.log('Fetching...');
+
+    fetch('https://fakestoreapi.com/products')
+      .then(resp => resp.json())
+      .then(respJson => setListaProductos(respJson) );
+    console.log('Lista de productos: ', listaProductos);
+  }, [] );
+
   return (
-    <div className='p-3 mt-3 w-50 mx-auto text-primary-emphasis bg-info border border-primary rounded-3 text-center'>
-      Hola {props.greeting}
-      </div>
+    listaProductos && <GridProductos productos={listaProductos} />
   )
 }

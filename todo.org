@@ -1,0 +1,20 @@
+#+title: TODO CURSO REACT
+
+* DONE Agregar llamada a fakeapi en ItemListContainer
+
+* DONE Generar el componente ItemList
+
+* DONE Generar la grid de Productos con Cards 
+
+* TODO Generar la página de Producto
+
+** TODO Generar contador en página de producto
+
+* TODO Generar lista de categorías en ItemListContainer
+
+** TODO Generar el fetch de la lista de categorías
+
+** TODO Generar los botones toggle para las categorías
+
+** TODO Generar el filtro de categorías para el ItemList
+
