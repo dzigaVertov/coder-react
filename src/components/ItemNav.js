@@ -2,7 +2,9 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 
 export default function ItemNav(props) {
+  
+  console.log(props);
   return (
-    <Link to="#" className='border p-2 rounded-3 text-reset text-decoration-none'>{props.nombre}</Link>
+    <Link to={props.to} className='border p-2 rounded-3 text-reset text-decoration-none'>{props.nombre}</Link>
   )
 }

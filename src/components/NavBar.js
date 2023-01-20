@@ -5,8 +5,9 @@ import logo from '../icono_1.png'
 import {Link} from 'react-router-dom'
 
 export default function NavBar() {
-    const itemsNav = ["Productos", "Contactos"];
-    
+  const itemsNav = [{nombre: "Productos", to: '/productos'}, {nombre: "Contactos", to: '/contacto'}];
+  const linksNav = itemsNav.map((item) => <ItemNav key={item.nombre} nombre={item.nombre} to={item.to} />);
+  console.log(linksNav);
 
   return (
     <nav className='navbar navbar-light bg-light shadow-sm'>
@@ -16,8 +17,9 @@ export default function NavBar() {
             </Link>
             <span className='navbar-brand mb-2 ps-3 h1'>Panis Deus</span>
         </div>
+
+        {linksNav}      
         
-        { itemsNav.map(element => {return <ItemNav key={element} nombre={element}/>})}
      
         <CartWidget />
 

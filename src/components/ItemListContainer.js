@@ -1,23 +1,32 @@
 import React from 'react'
 import GridProductos from './GridProductos'
 import {useEffect, useState} from 'react'
-
-
+import { useParams } from 'react-router-dom';
+import ListaCategorias from './ListaCategorias.js';
 
 export default function ItemListContainer(props) {
 
   const [listaProductos, setListaProductos] = useState();
+  const catId = useParams();
 
   useEffect( () => {
-    console.log('Fetching...');
-
-    fetch('https://fakestoreapi.com/products')
+    if(catId.id){
+      fetch(`https://fakestoreapi.com/products/category/${catId.id}`)
       .then(resp => resp.json())
-      .then(respJson => setListaProductos(respJson) );
-    console.log('Lista de productos: ', listaProductos);
-  }, [] );
+      .then(respJson => setListaProductos(respJson));
+      
+    } else {
+      fetch('https://fakestoreapi.com/products')
+      .then(resp => resp.json())
+      .then(respJson => setListaProductos(respJson));
+    }
+    
+  }, [catId] );
 
   return (
-    listaProductos && <GridProductos productos={listaProductos} />
+    <>
+    <ListaCategorias />
+    {listaProductos && <GridProductos productos={listaProductos} />}
+    </>
   )
 }

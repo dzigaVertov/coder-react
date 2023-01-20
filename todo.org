@@ -6,15 +6,23 @@
 
 * DONE Generar la grid de Productos con Cards 
 
-* TODO Generar la página de Producto
+* DONE Agregar el Leer más a las Cards
 
-** TODO Generar contador en página de producto
+* DONE Generar la página de Producto
 
-* TODO Generar lista de categorías en ItemListContainer
+** DONE Generar contador en página de producto
 
-** TODO Generar el fetch de la lista de categorías
+* DONE Generar todos los links de navegación
 
-** TODO Generar los botones toggle para las categorías
+* DONE Generar página Home
 
-** TODO Generar el filtro de categorías para el ItemList
+* DONE Generar lista de categorías en ItemListContainer
+
+** DONE Generar el fetch de la lista de categorías
+
+** DONE Generar los botones toggle para las categorías
+
+** DONE Generar el filtro de categorías para el ItemList
+
+* TODO Hacer Deploy
 
