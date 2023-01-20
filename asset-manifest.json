@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/react-gh-pages/static/css/main.f7b26ac6.css",
-    "main.js": "/react-gh-pages/static/js/main.09820282.js",
-    "static/media/bootstrap-icons.woff?": "/react-gh-pages/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
-    "static/media/bootstrap-icons.woff2?": "/react-gh-pages/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
-    "static/media/icono_1.png": "/react-gh-pages/static/media/icono_1.f091c1d282f25259e0e0.png",
-    "index.html": "/react-gh-pages/index.html",
-    "main.f7b26ac6.css.map": "/react-gh-pages/static/css/main.f7b26ac6.css.map",
-    "main.09820282.js.map": "/react-gh-pages/static/js/main.09820282.js.map"
+    "main.css": "/coder-react/static/css/main.382fa49d.css",
+    "main.js": "/coder-react/static/js/main.7b34811e.js",
+    "static/media/bootstrap-icons.woff?": "/coder-react/static/media/bootstrap-icons.6959d0d983ee318f8880.woff",
+    "static/media/bootstrap-icons.woff2?": "/coder-react/static/media/bootstrap-icons.b2e5aab643c6f0fd2da6.woff2",
+    "static/media/icono_1.png": "/coder-react/static/media/icono_1.f091c1d282f25259e0e0.png",
+    "index.html": "/coder-react/index.html",
+    "main.382fa49d.css.map": "/coder-react/static/css/main.382fa49d.css.map",
+    "main.7b34811e.js.map": "/coder-react/static/js/main.7b34811e.js.map"
   },
   "entrypoints": [
-    "static/css/main.f7b26ac6.css",
-    "static/js/main.09820282.js"
+    "static/css/main.382fa49d.css",
+    "static/js/main.7b34811e.js"
   ]
 }
