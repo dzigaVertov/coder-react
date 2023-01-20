@@ -7,12 +7,12 @@ export default function ListaCategorias() {
     useEffect( () => {
         fetch('https://fakestoreapi.com/products/categories')
       .then(resp => resp.json())
-      .then(respJson => {setListaCategorias(respJson); console.log(respJson);});
+      .then(respJson => setListaCategorias(respJson));
     }, [])
 
   return(
     <div style={{display:'flex', flexDirection:'row', gap:15}}>
-    {listaCategorias && listaCategorias.map((cat) => <Link to={`/productos/categories/${cat}`}>{cat}</Link> )}
+    {listaCategorias && listaCategorias.map((cat) => <Link key={cat} to={`/productos/categories/${cat}`}>{cat}</Link> )}
     </div>
   )
 }

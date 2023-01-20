@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 export default function NavBar() {
   const itemsNav = [{nombre: "Productos", to: '/productos'}, {nombre: "Contactos", to: '/contacto'}];
   const linksNav = itemsNav.map((item) => <ItemNav key={item.nombre} nombre={item.nombre} to={item.to} />);
-  console.log(linksNav);
+  
 
   return (
     <nav className='navbar navbar-light bg-light shadow-sm'>
