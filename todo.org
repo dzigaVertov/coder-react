@@ -26,3 +26,6 @@
 
 * DONE Hacer Deploy
 
+* TODO Agregar Firebase
+
+* TODO Agregar loadings

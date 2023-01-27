@@ -1,5 +1,4 @@
-import ItemListContainer from './ItemListContainer';
-import React from 'react'
+import React from 'react';
 import { Container } from 'react-bootstrap';
 
 export default function Home() {
@@ -8,5 +7,5 @@ export default function Home() {
       <h1 style={{textAlign: 'center' }}>¡COMPUVENTA HIPERMEGARED!</h1>
     </Container>
     
-  )
+  );
 }
