@@ -1,30 +1,48 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import { useParams } from 'react-router-dom';
+import { Button, Container } from 'react-bootstrap';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import CardProducto from './CardProducto';
+import Contador from './Contador.js';
+
 
 
 
 
 
 export default function ItemDetailContainer() {
-	let productoid = useParams();
+    let productoid = useParams();
 
-	const [item, setItem] = useState();
-	const stock = 10; 		// provisorio hasta db
+    const [item, setItem] = useState();
+    const stock = 10; 		// provisorio hasta db
+    let navigate = useNavigate();
 
-	useEffect(() => {
-		fetch(`https://fakestoreapi.com/products/${productoid.id}`)
-			.then(resp => resp.json())
-			.then(respJson => setItem(respJson));
-	}, [productoid]);
 
-	return (
-		<Container className='justify-content-center'>
-			{item && <CardProducto stock={stock} producto={item} ancho_max={'400px'} detalle={true} />}
+    useEffect(() => {
+        fetch(`https://fakestoreapi.com/products/${productoid.id}`)
+            .then(resp => resp.json())
+            .then(respJson => setItem(respJson));
+    }, [productoid]);
 
-		</Container>
-	);
+    const onAdd = function () {
+        console.log('onadding');
+
+    };
+
+    const onTerminarCompra = () => {
+        navigate('/cart');
+    };
+
+
+
+    return (
+        <Container className='d-flex justify-content-center align-content-center align-items-center ' >
+            {item && <CardProducto stock={stock} producto={item} ancho_max={'400px'} detalle={true} />}
+            <div className='d-flex flex-column gap-4 '>
+                <Contador stock={stock} inicial={0} onAdd={onAdd} />
+                <Button onClick={onTerminarCompra}>Teminar mi compra</Button>
+            </div>
+        </Container>
+    );
 }
 
