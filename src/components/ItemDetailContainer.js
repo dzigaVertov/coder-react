@@ -38,7 +38,8 @@ export default function ItemDetailContainer() {
     return (
         <Container className='d-flex justify-content-center align-content-center align-items-center ' >
             {item && <CardProducto stock={stock} producto={item} ancho_max={'400px'} detalle={true} />}
-            <div className='d-flex flex-column gap-4 '>
+          <div className='d-flex flex-column gap-3 '>
+            <div style={{textAlign:'center', border: 'black solid 1px', borderRadius:'5px'}}>{`Disponibles: ${stock}`}</div>
                 <Contador stock={stock} inicial={0} onAdd={onAdd} />
                 <Button onClick={onTerminarCompra}>Teminar mi compra</Button>
             </div>

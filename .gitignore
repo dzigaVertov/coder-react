@@ -24,3 +24,4 @@ yarn-error.log*
 /todo.org~
 /src/components/Cart.js    ~
 /src/components/Cart.js~
+/src/components/CartContextProvider.js~
