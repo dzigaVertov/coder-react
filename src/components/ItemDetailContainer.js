@@ -14,6 +14,7 @@ export default function ItemDetailContainer() {
     let productoid = useParams();
 
     const [item, setItem] = useState();
+    const [numItems, setNumItems] = useState(0);
     const stock = 10; 		// provisorio hasta db
     let navigate = useNavigate();
 
@@ -24,8 +25,9 @@ export default function ItemDetailContainer() {
             .then(respJson => setItem(respJson));
     }, [productoid]);
 
-    const onAdd = function () {
+    const onAdd = function (num) {
         console.log('onadding');
+        setNumItems(num);
 
     };
 
@@ -38,9 +40,9 @@ export default function ItemDetailContainer() {
     return (
         <Container className='d-flex justify-content-center align-content-center align-items-center ' >
             {item && <CardProducto stock={stock} producto={item} ancho_max={'400px'} detalle={true} />}
-          <div className='d-flex flex-column gap-3 '>
-            <div style={{textAlign:'center', border: 'black solid 1px', borderRadius:'5px'}}>{`Disponibles: ${stock}`}</div>
-                <Contador stock={stock} inicial={0} onAdd={onAdd} />
+            <div className='d-flex flex-column gap-3 '>
+                <div style={{ textAlign: 'center', border: 'black solid 1px', borderRadius: '5px' }}>{`Disponibles: ${stock}`}</div>
+                <Contador stock={stock} inicial={numItems} onAdd={onAdd} />
                 <Button onClick={onTerminarCompra}>Teminar mi compra</Button>
             </div>
         </Container>

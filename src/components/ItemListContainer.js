@@ -1,6 +1,6 @@
-import React from 'react'
-import GridProductos from './GridProductos'
-import {useEffect, useState} from 'react'
+import React from 'react';
+import GridProductos from './GridProductos';
+import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import ListaCategorias from './ListaCategorias.js';
 
@@ -28,5 +28,5 @@ export default function ItemListContainer(props) {
     <ListaCategorias />
     {listaProductos && <GridProductos productos={listaProductos} />}
     </>
-  )
+  );
 }

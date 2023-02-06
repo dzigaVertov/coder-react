@@ -21,10 +21,10 @@ export default function Contador({ stock, inicial, onAdd }) {
 
     const agregarCarrito = () => {
         onAdd(numItems);
+        setNumItems(0);
     };
 
     return (
-
         <Container style={{ maxWidth: '250px', margin: '0' }}>
             <div style={{ display: 'flex', flexDirection: 'row', gap: '1rem', alignContent: 'center', justifyContent: 'center' }}>
                 <div className='p-1' style={{ display: 'flex', flexDirection: 'row', gap: '.4rem', border: 'solid grey 1px', borderRadius: '5px', alignItems: 'center' }}>
