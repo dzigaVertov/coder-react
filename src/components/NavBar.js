@@ -1,8 +1,8 @@
-import React from 'react'
-import CartWidget from './CartWidget'
+import React from 'react';
+import CartWidget from './CartWidget';
 import ItemNav from './ItemNav';
-import logo from '../icono_1.png'
-import {Link} from 'react-router-dom'
+import logo from '../icono_1.png';
+import {Link} from 'react-router-dom';
 
 export default function NavBar() {
   const itemsNav = [{nombre: "Productos", to: '/productos'}, {nombre: "Contactos", to: '/contacto'}];
@@ -25,5 +25,5 @@ export default function NavBar() {
 
 
     </nav>
-  )
+  );
 }

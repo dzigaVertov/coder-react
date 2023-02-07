@@ -26,6 +26,13 @@
 
 * DONE Hacer Deploy
 
+* TODO Agregar cantidad al método de agregar objeto
+
+* TODO Agregar lógica de rechazar duplicados
+
+** la estructura del array de productos va a ser:
+[{id:23, item: {item}, cantidad: 1}
+
 * TODO Agregar Firebase
 
 * TODO Agregar loadings

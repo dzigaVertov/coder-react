@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import CardProducto from './CardProducto';
 import Contador from './Contador.js';
+import {useCarrito, ACCIONES} from './CartContextProvider.js';
 
 
 
@@ -17,6 +18,7 @@ export default function ItemDetailContainer() {
     const [numItems, setNumItems] = useState(0);
     const stock = 10; 		// provisorio hasta db
     let navigate = useNavigate();
+    const [carrito, dispatch] = useCarrito();
 
 
     useEffect(() => {
@@ -27,6 +29,7 @@ export default function ItemDetailContainer() {
 
     const onAdd = function (num) {
         console.log('onadding');
+        dispatch({type: ACCIONES.AGREGAR_PRODUCTO,payload: {}} )
         setNumItems(num);
 
     };

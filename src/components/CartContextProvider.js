@@ -1,5 +1,5 @@
-import React, { useReducer } from 'react';
-import { createContext } from 'react';
+import React, { createContext, useReducer, useContext } from 'react';
+
 
 export const CartContext = createContext();
 
@@ -16,12 +16,19 @@ function cartReducer(carrito, action) {
             carrito.productos = [];
             return carrito;
         }
-    case ACCIONES.BORRAR_ITEM: {
-        carrito.productos = carrito.productos.filter(itm => itm.id != action.payload.id);
+        case ACCIONES.BORRAR_ITEM: {
+            carrito.productos = carrito.productos.filter(itm => itm.id != action.payload.item.id);
             return carrito;
         }
-    case ACCIONES.AGREGAR_PRODUCTO: {
-        carrito.productos.append(action.payload.item);
+        case ACCIONES.AGREGAR_PRODUCTO: {
+            const idx = carrito.buscarItem(action.payload.item.id);
+            if (idx === -1) {        // El producto no está en el carrito
+                const productoCarrito = { id: action.payload.item.id, item: action.payload.item, quantity: action.payload.quantity };
+                carrito.productos.append(productoCarrito);
+            } else {            // El producto ya está en el carrito, agregamos cantidad
+                carrito.productos[idx].quantity += action.payload.quantity;
+            }
+
             return carrito;
         }
         default: {
@@ -31,34 +38,14 @@ function cartReducer(carrito, action) {
     }
 }
 
-function agregarCarrito(item, cantidad) {
-    const nuevoProducto = 'nuevoProducto';
-    setProductosCarro((prevCarro) => {
-        prevCarro.append(nuevoProducto);
-        return prevCarro;
-    });
-}
-
-function encontrarItem(id) {
-    return productosCarro.findIndex((element) => element.id === id);
-}
-
-function borrarItem(id) {
-    const idx = encontrarItem(id);
-    if (idx != -1) {
-        setProductosCarro((prevCarro) => {
-            prevCarro.splice(idx, 1);
-            return prevCarro;
-        });
-    }
-
-}
-
-
-
-
 const CartContextProvider = ({ children }) => {
-    const [carrito, dispatch] = useReducer(cartReducer, { productos: [] });
+
+    const [carrito, dispatch] = useReducer(cartReducer, {
+        productos: [],
+        buscarItem: id => this.productos.findIndex(x => x === id),
+        isInCart: id => this.productos.some(x => x.id === id)
+    }
+    );
     const value = { carrito, dispatch };
 
     return (
@@ -67,5 +54,10 @@ const CartContextProvider = ({ children }) => {
         </CartContext.Provider>
     );
 };
+
+export function useCarrito() {
+    const carritoContext = useContext(CartContext);
+    return carritoContext;
+}
 
 export default CartContextProvider;
