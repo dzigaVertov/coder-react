@@ -12,9 +12,8 @@ const Cart = (props) => {
 
     return (
         <div>
-          <ListaCarrito/>
-            <Button onClick={vaciarCarrito}>Vaciar Carrito</Button>
-
+          {carrito.productos.length ? <ListaCarrito/> : <h1>No hay productos en el carrito</h1>}
+          <Button onClick={vaciarCarrito} disabled={!carrito.productos.length}>Vaciar Carrito</Button>
         </div>
     );
 };

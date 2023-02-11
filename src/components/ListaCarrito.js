@@ -4,9 +4,15 @@ import { useCarrito } from './CartContextProvider.js';
 import ItemCarrito from './ItemCarrito';
 
 
-const ListaCarrito = (props) => {
+const ListaCarrito = () => {
     const { carrito, dispatch } = useCarrito();
     const productos = carrito.productos;
+
+    const subtotalCompra = productos.reduce((accum, prod) => accum + prod.item.price * prod.quantity, 0);
+    const iva = subtotalCompra * 0.21;
+    const totalCompra = iva + subtotalCompra;
+
+
 
     return (
         <div className='contenedorCarrito'>
@@ -15,15 +21,15 @@ const ListaCarrito = (props) => {
             </div>
 
             <div className='card-totales'>
-                <span>Su Compra: </span>
-            <span>Subtotal: </span>
-            <span>Subtotal: </span>
-            <span>IVA: </span>
-            <span>Subtotal: </span>
-            <span>TOTAL: </span>
-            <span>Subtotal: </span>
+                <span id='su-compra'>Su Compra: </span>
+                <span>Subtotal: </span>
+                <span className='dinero'>$ {subtotalCompra.toFixed(2)} </span>
+                <span>IVA: </span>
+                <span className='dinero'>$ {iva.toFixed(2)} </span>
+                <span>TOTAL: </span>
+                <span className='dinero'>$ {totalCompra.toFixed(2)} </span>
 
-        </div>
+            </div>
         </div >
     );
 };

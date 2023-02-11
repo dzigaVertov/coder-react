@@ -5,19 +5,32 @@
     border: 1px solid black;
     border-radius: 10px;
     display: flex;
-    
     gap: 1rem;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    align-content: space-around;
+    padding: 10px;
 }
 
 .col {
     flex: 1;
-}
-
-.botones {
-    background-color: antiquewhite;
-    margin: 5px;
+    text-align: center;
 }
 
 .img-lista-carrito {
     max-width: 70px;
+}
+
+.btn-borrar {
+    width: 30px;
+    height: 30px;
+    background-color: antiquewhite;
+    border-radius: 50%;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    line-height: 100%;
+    font-size: 300px;
+
 }

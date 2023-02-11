@@ -33,7 +33,23 @@
 ** la estructura del array de productos va a ser:
 [{id:23, item: {item}, cantidad: 1}
 
+* DONE Agregar chequeos a agregar items y demás
+
+* DONE Agregar persistencia de Carrito en LocalStorage
+
+* DONE Corregir altura de contenedor lista carrito
+
+* DONE Agregar botón de Eliminar producto
+
+* DONE Agregar cálculo de precio total
+
+* DONE Agregar condicional de carrito vacío
+
+* TODO Corregir cantidad de items
+
 * TODO Agregar Firebase
+
+* TODO Agregar contador de cantidad
 
 * TODO Agregar loadings
 
@@ -41,12 +57,3 @@
 
 * TODO Hacer categoría disabled
 
-* DONE Agregar chequeos a agregar items y demás
-
-* DONE Agregar persistencia de Carrito en LocalStorage
-
-* TODO Corregir altura de contenedor lista carrito
-
-* TODO Agregar botón de Eliminar producto
-
-* TODO Agregar contador de cantidad
