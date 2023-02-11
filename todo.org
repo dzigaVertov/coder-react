@@ -26,9 +26,9 @@
 
 * DONE Hacer Deploy
 
-* TODO Agregar cantidad al método de agregar objeto
+* DONE Agregar cantidad al método de agregar objeto
 
-* TODO Agregar lógica de rechazar duplicados
+* DONE Agregar lógica de rechazar duplicados
 
 ** la estructura del array de productos va a ser:
 [{id:23, item: {item}, cantidad: 1}
@@ -41,4 +41,12 @@
 
 * TODO Hacer categoría disabled
 
-* TODO Agregar chequeos a agregar items y demás
+* DONE Agregar chequeos a agregar items y demás
+
+* DONE Agregar persistencia de Carrito en LocalStorage
+
+* TODO Corregir altura de contenedor lista carrito
+
+* TODO Agregar botón de Eliminar producto
+
+* TODO Agregar contador de cantidad

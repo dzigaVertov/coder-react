@@ -18,7 +18,7 @@ export default function ItemDetailContainer() {
     const [numItems, setNumItems] = useState(0);
     const stock = 10; 		// provisorio hasta db
     let navigate = useNavigate();
-    const [carrito, dispatch] = useCarrito();
+    const {carrito, dispatch} = useCarrito();
 
 
     useEffect(() => {
@@ -28,10 +28,8 @@ export default function ItemDetailContainer() {
     }, [productoid]);
 
     const onAdd = function (num) {
-        console.log('onadding');
-        dispatch({type: ACCIONES.AGREGAR_PRODUCTO,payload: {}} )
+        dispatch({type: ACCIONES.AGREGAR_PRODUCTO,payload: {item:item, quantity:num}} );
         setNumItems(num);
-
     };
 
     const onTerminarCompra = () => {

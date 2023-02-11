@@ -25,3 +25,7 @@ yarn-error.log*
 /src/components/Cart.js    ~
 /src/components/Cart.js~
 /src/components/CartContextProvider.js~
+/src/components/ItemCarrito.css~
+/src/components/ItemCarrito.js~
+/src/components/ListaCarrito.css~
+/src/components/ListaCarrito.js~

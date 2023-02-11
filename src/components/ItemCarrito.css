@@ -1,0 +1,23 @@
+.item {
+    width: 100%;
+    max-width: 700px;
+    background-color: orange;
+    border: 1px solid black;
+    border-radius: 10px;
+    display: flex;
+    
+    gap: 1rem;
+}
+
+.col {
+    flex: 1;
+}
+
+.botones {
+    background-color: antiquewhite;
+    margin: 5px;
+}
+
+.img-lista-carrito {
+    max-width: 70px;
+}

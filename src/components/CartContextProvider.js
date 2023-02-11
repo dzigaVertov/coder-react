@@ -14,38 +14,55 @@ function cartReducer(carrito, action) {
     switch (action.type) {
         case ACCIONES.VACIAR_CARRITO: {
             carrito.productos = [];
-            return carrito;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            return { ...carrito };
         }
         case ACCIONES.BORRAR_ITEM: {
             carrito.productos = carrito.productos.filter(itm => itm.id != action.payload.item.id);
-            return carrito;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            return { ...carrito };
         }
         case ACCIONES.AGREGAR_PRODUCTO: {
+
             const idx = carrito.buscarItem(action.payload.item.id);
+
             if (idx === -1) {        // El producto no está en el carrito
+
                 const productoCarrito = { id: action.payload.item.id, item: action.payload.item, quantity: action.payload.quantity };
-                carrito.productos.append(productoCarrito);
+                carrito.productos.push(productoCarrito);
             } else {            // El producto ya está en el carrito, agregamos cantidad
                 carrito.productos[idx].quantity += action.payload.quantity;
             }
-
-            return carrito;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            return { ...carrito };
         }
         default: {
-            return carrito;
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            return { ...carrito };
         }
 
     }
 }
 
+function hacerCarrito() {
+    const carrito = JSON.parse(localStorage.getItem('carrito'));
+    
+    return {
+        productos: carrito ? carrito.productos : [],
+
+        buscarItem(id) {
+            return this.productos.findIndex(x => x.id === id);
+        },
+
+        isInCart(id) {
+            return this.productos.some(x => x.id === id);
+        }
+    };
+}
+
 const CartContextProvider = ({ children }) => {
 
-    const [carrito, dispatch] = useReducer(cartReducer, {
-        productos: [],
-        buscarItem: id => this.productos.findIndex(x => x === id),
-        isInCart: id => this.productos.some(x => x.id === id)
-    }
-    );
+    const [carrito, dispatch] = useReducer(cartReducer, hacerCarrito());
     const value = { carrito, dispatch };
 
     return (

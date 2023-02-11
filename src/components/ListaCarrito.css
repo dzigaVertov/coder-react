@@ -1,0 +1,28 @@
+.contenedorCarrito {
+    display: flex;
+}
+
+.contenedorLista {
+    display: flex;
+    flex-direction: column;
+    background-color: aliceblue;
+
+    margin: 20px;
+    gap: 0.1rem;
+}
+
+.card-totales {
+    width: 25%;
+    margin: 20px;
+    background-color: hotpink;
+    border-radius: 10%;
+    box-shadow: -10px 10px 10px lightgray;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+}
+
+span:first-child {
+    grid-column: span 2;
+    font-size: 200%;
+}
