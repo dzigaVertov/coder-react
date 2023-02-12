@@ -29,3 +29,6 @@ yarn-error.log*
 /src/components/ItemCarrito.js~
 /src/components/ListaCarrito.css~
 /src/components/ListaCarrito.js~
+/src/components/Loading.css~
+/src/components/Loading.js~
+/src/llenarDb.js~

@@ -3,8 +3,10 @@ import GridProductos from './GridProductos';
 import {useEffect, useState} from 'react';
 import { useParams } from 'react-router-dom';
 import ListaCategorias from './ListaCategorias.js';
+import Loading from './Loading';
 
-export default function ItemListContainer(props) {
+
+export default function ItemListContainer() {
 
   const [listaProductos, setListaProductos] = useState();
   const catId = useParams();
@@ -26,7 +28,7 @@ export default function ItemListContainer(props) {
   return (
     <>
     <ListaCategorias />
-    {listaProductos && <GridProductos productos={listaProductos} />}
+      {listaProductos ? <GridProductos productos={listaProductos} /> : <Loading/>}
     </>
   );
 }

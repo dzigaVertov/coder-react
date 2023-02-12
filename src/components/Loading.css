@@ -1,0 +1,16 @@
+.spinner {
+    width: 100%;
+    height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.circulo {
+    width: 5rem;
+    height: 5rem;
+}
+
+h2 {
+    margin-left: 1rem;
+}
