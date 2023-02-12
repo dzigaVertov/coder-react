@@ -47,11 +47,11 @@
 
 * TODO Corregir cantidad de items
 
-* TODO Agregar Firebase
+* DONE Agregar Firebase
 
 * TODO Agregar contador de cantidad
 
-* TODO Agregar loadings
+* DONE Agregar loadings
 
 * TODO Formatear categorías
 
