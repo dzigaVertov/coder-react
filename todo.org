@@ -45,6 +45,14 @@
 
 * DONE Agregar condicional de carrito vacío
 
+* DONE Corregir stock en cardProducto
+
+* DONE Corregir persistencia de carrito en localStorage para que no duplique número de artículos 
+
+* TODO Hacer  tarjeta de terminar compra.
+
+* TODO Agregar colección de comprar a la base de datos.  
+
 * TODO Corregir cantidad de items
 
 * DONE Agregar Firebase
@@ -56,4 +64,6 @@
 * TODO Formatear categorías
 
 * TODO Hacer categoría disabled
+
+* TODO Corregir manejo de stock cuando se agrega al carrito.
 

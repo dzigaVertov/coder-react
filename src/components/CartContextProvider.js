@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, useContext } from 'react';
+import React, { createContext, useReducer, useContext, useEffect } from 'react';
 
 
 export const CartContext = createContext();
@@ -13,32 +13,33 @@ export const ACCIONES = {
 function cartReducer(carrito, action) {
     switch (action.type) {
         case ACCIONES.VACIAR_CARRITO: {
-            carrito.productos = [];
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            return { ...carrito };
+
+            return { ...carrito, productos: [] };
         }
         case ACCIONES.BORRAR_ITEM: {
-            carrito.productos = carrito.productos.filter(itm => itm.id != action.payload.item.id);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            return { ...carrito };
+
+            return { ...carrito, productos: carrito.productos.filter(itm => itm.id != action.payload.item.id) };
         }
         case ACCIONES.AGREGAR_PRODUCTO: {
 
             const idx = carrito.buscarItem(action.payload.item.id);
 
             if (idx === -1) {        // El producto no está en el carrito
-
                 const productoCarrito = { id: action.payload.item.id, item: action.payload.item, quantity: action.payload.quantity };
-                carrito.productos.push(productoCarrito);
+                return { ...carrito, productos: [...carrito.productos, productoCarrito] };
             } else {            // El producto ya está en el carrito, agregamos cantidad
-                carrito.productos[idx].quantity += action.payload.quantity;
+
+                const nuevaCantidad = carrito.productos[idx].quantity + action.payload.quantity;
+                const productoActualizado = { ...carrito.productos[idx], quantity: nuevaCantidad };
+                let nuevoProductos = [...carrito.productos];
+                nuevoProductos.splice(idx, 1);
+                nuevoProductos.push(productoActualizado);
+                return { ...carrito, productos: nuevoProductos };
+
             }
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            return { ...carrito };
         }
         default: {
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            return { ...carrito };
+            throw new Error();
         }
 
     }
@@ -46,7 +47,7 @@ function cartReducer(carrito, action) {
 
 function hacerCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
-    
+
     return {
         productos: carrito ? carrito.productos : [],
 
@@ -63,6 +64,13 @@ function hacerCarrito() {
 const CartContextProvider = ({ children }) => {
 
     const [carrito, dispatch] = useReducer(cartReducer, hacerCarrito());
+
+    // Persistir el carrito en localStorage
+    useEffect(() => {
+        localStorage.setItem('carrito', JSON.stringify(carrito));
+    }, [carrito]);
+
+
     const value = { carrito, dispatch };
 
     return (
