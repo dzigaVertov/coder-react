@@ -1,3 +1,16 @@
+.carrito {
+    display: flex;
+    flex-direction: column;
+    margin:auto;
+
+}
+
+.botones {
+    align-self:center;
+    display:flex;
+    gap: 0.5rem;
+}
 .btn-lista {
-    margin-left: 1rem;
+    max-width: 200px;
+    
 }

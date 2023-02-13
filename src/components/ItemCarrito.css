@@ -20,6 +20,7 @@
 
 .img-lista-carrito {
     max-width: 70px;
+    max-height: 70px;
 }
 
 .btn-borrar {
@@ -31,6 +32,9 @@
     margin: 0;
     padding: 0;
     line-height: 100%;
-    
+}
 
+.titulo {
+    max-height: 70px;
+    overflow: hidden;
 }

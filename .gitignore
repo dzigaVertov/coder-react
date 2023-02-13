@@ -34,3 +34,4 @@ yarn-error.log*
 /src/llenarDb.js~
 /.vscode/
 /src/components/Cart.css~
+/src/components/ModalDatos.js~

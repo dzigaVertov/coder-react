@@ -57,6 +57,14 @@ function hacerCarrito() {
 
         isInCart(id) {
             return this.productos.some(x => x.id === id);
+        },
+
+        totalCompra() {
+            return (this.productos.reduce((accum, prod)=> accum + (prod.item.price * prod.quantity))).toFixed(2);
+        },
+
+        ivaCompra() {
+            return (this.totalCompra()*0.21).toFixed(2);
         }
     };
 }
