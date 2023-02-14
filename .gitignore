@@ -35,3 +35,4 @@ yarn-error.log*
 /.vscode/
 /src/components/Cart.css~
 /src/components/ModalDatos.js~
+/src/components/ModalFinalCompra.js~

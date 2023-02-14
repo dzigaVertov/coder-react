@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import CardProducto from './CardProducto';
 import Contador from './Contador.js';
 import { useCarrito, ACCIONES } from './CartContextProvider.js';
-import { collection, getDoc, doc, getFirestore, limit, query, where } from 'firebase/firestore';
+import { getDoc, doc, getFirestore } from 'firebase/firestore';
 
 
 

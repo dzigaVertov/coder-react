@@ -4,28 +4,13 @@ import { useCarrito, ACCIONES } from './CartContextProvider.js';
 import ListaCarrito from './ListaCarrito.js';
 import './Cart.css';
 import ModalDatos from './ModalDatos.js';
+import { addDoc, getFirestore, collection, serverTimestamp } from 'firebase/firestore';
 
 const Cart = () => {
     const { carrito, dispatch } = useCarrito();
-    const [showModal, setShowModal] = useState(false);
+    const [showModalDatos, setShowModalDatos] = useState(false);
+    const [showModalFinal, setShowModalFinal] = useState(false);
 
-    function vaciarCarrito() {
-        dispatch({ type: ACCIONES.VACIAR_CARRITO });
-    }
-
-    function comprar() {
-        setShowModal(true);
-        
-    }
-
-    function enviar(datos) {
-        setShowModal(false);
-        console.log(datos);
-    }
-
-    function cancelar(){
-        setShowModal(false);
-    }
 
     return (
         <div className='carrito'>
@@ -34,10 +19,52 @@ const Cart = () => {
                 <Button className='btn-lista' onClick={vaciarCarrito} disabled={!carrito.productos.length}>Vaciar Carrito</Button>
                 <Button className='btn-lista' onClick={comprar} disabled={!carrito.productos.length}>Comprar</Button>
             </div>
-          <ModalDatos show={showModal} onEnviar={enviar} onCancelar={cancelar} />
+            <ModalDatos show={showModalDatos} onEnviar={enviar} onCancelar={cancelar} />
 
         </div>
     );
+
+    function armarCompra(datosComprador) {
+        const productos = carrito.productos.map(prod => {
+            return {
+                id: prod.id,
+                price: prod.price,
+                title: prod.title,
+                quantity: prod.quantity
+            };
+        });
+        const total = carrito.totalCompra() + carrito.ivaCompra();
+        const date = serverTimestamp();
+
+        return { comprador: datosComprador, productos, total, date };
+    }
+
+    function guardarCompraDb(datosCompra){
+        const db = getFirestore();
+        const comprasCollection = collection(db, 'compras');
+        return addDoc(comprasCollection);        
+    }
+
+    function vaciarCarrito() {
+        dispatch({ type: ACCIONES.VACIAR_CARRITO });
+    }
+
+    function comprar() {
+        setShowModalDatos(true);
+    }
+
+    function enviar(datos) {
+        setShowModalDatos(false);
+        const datosCompra = armarCompra(datos);
+        guardarCompraDb(datosCompra).then(docRef => finalCompra(docRef));
+    }
+
+    function cancelar() {
+        setShowModalDatos(false);
+    }
+
+    
+
 };
 
 export default Cart;

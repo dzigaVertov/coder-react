@@ -49,21 +49,16 @@
 
 * DONE Corregir persistencia de carrito en localStorage para que no duplique número de artículos 
 
-* TODO Hacer  tarjeta de terminar compra.
+* DONE Hacer  tarjeta de terminar compra.
+* DONE Corregir cantidad de items
+* DONE Agregar Firebase
+* DONE Agregar loadings
 
 * TODO Agregar colección de comprar a la base de datos.  
 
-* TODO Corregir cantidad de items
-
-* DONE Agregar Firebase
-
-* TODO Agregar contador de cantidad
-
-* DONE Agregar loadings
+** TODO Agregar Modal de devolución de la compra terminada.  
 
 * TODO Formatear categorías
-
 * TODO Hacer categoría disabled
-
 * TODO Corregir manejo de stock cuando se agrega al carrito.
 
