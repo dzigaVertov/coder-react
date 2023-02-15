@@ -7,7 +7,7 @@ import { useCarrito } from './CartContextProvider.js';
 export default function CartWidget() {
     const {carrito, dispatch} = useCarrito();
 
-    const numTotalItems = carrito.productos.reduce((accum, prod)=>{return accum + prod.quantity}, 0);
+    const numTotalItems = carrito.productos && carrito.productos.reduce((accum, prod)=>{return accum + prod.quantity}, 0);
 
     
 
