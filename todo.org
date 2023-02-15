@@ -54,9 +54,9 @@
 * DONE Agregar Firebase
 * DONE Agregar loadings
 
-* TODO Agregar colección de comprar a la base de datos.  
+* DONE Agregar colección de comprar a la base de datos.  
 
-** TODO Agregar Modal de devolución de la compra terminada.  
+** DONE Agregar Modal de devolución de la compra terminada.  
 
 * TODO Formatear categorías
 * TODO Hacer categoría disabled

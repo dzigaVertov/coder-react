@@ -46,7 +46,7 @@ export default function CardProducto(props) {
                 </Card.Text>
             </Card.Body>
             <ListGroup className='list-group-flush'>
-                {props.detalle ? <ListGroup.Item><Link to='/' >Volver a productos</Link> </ListGroup.Item> : <ListGroup.Item><Link to={'/item/' + producto.id}>Ver detalle</Link> </ListGroup.Item>}
+                {props.detalle ? <ListGroup.Item><Link to='/productos' >Volver a productos</Link> </ListGroup.Item> : <ListGroup.Item><Link to={'/item/' + producto.id}>Ver detalle</Link> </ListGroup.Item>}
                 <ListGroup.Item>{producto.category}</ListGroup.Item>
                 <ListGroup.Item>{`$ ${producto.price}`}</ListGroup.Item>
 

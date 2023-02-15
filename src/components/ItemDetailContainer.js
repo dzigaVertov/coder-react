@@ -31,8 +31,7 @@ export default function ItemDetailContainer() {
         });
     }, [productoid]);
 
-    const onAdd = function (num) {
-        console.log('onadding ', num );
+    const onAdd = function (num) {        
         dispatch({ type: ACCIONES.AGREGAR_PRODUCTO, payload: { item: item, quantity: num } });
         setNumItems(num);
     };

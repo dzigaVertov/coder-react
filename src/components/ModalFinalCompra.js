@@ -1,8 +1,9 @@
 import React from 'react';
 import {Button, Modal} from 'react-bootstrap';
+import './ModalFinalCompra.css';
 
 const ModalFinalCompra = (props) => {
-    let {show, idCompra} = props;
+    let {show, idCompra, finalizar} = props;
     
     return (
 
@@ -13,13 +14,13 @@ const ModalFinalCompra = (props) => {
           </Modal.Header>
 
           <Modal.Body>
-            <h2>Este es el código de tu compra:</h2>
-            <h1>{idCompra}</h1>
-            <h3>¡Memorízalo!</h3>
+            <h3>Este es el código de tu compra:</h3>
+            <h2>{idCompra}</h2>
+            <h4>¡Memorízalo!</h4>
           </Modal.Body>
 
           <Modal.Footer>
-            <Button onClick={()=> show=false }>Aceptar</Button>
+            <Button onClick={finalizar}>Aceptar</Button>
           </Modal.Footer>
           
         </Modal>

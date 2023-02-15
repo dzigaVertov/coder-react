@@ -32,7 +32,7 @@ export default function ItemListContainer() {
 
     return (
         <>
-            <ListaCategorias />
+          <ListaCategorias catId={catId.id}/>
             {listaProductos ? <GridProductos productos={listaProductos} /> : <Loading />}
         </>
     );

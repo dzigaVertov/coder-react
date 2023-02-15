@@ -1,0 +1,28 @@
+.contenedorCategorias {
+    display: flex;
+    flexDirection:row;
+    gap:1rem;
+    margin:1rem
+}
+
+.categoria {
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    color: black;
+    
+}
+
+.disabled {
+    color: gray;
+    border: 1px solid rgba(0,0,0,0.1);
+    padding: 0.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.1);
+    pointer-events: none;
+
+}
+

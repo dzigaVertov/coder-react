@@ -36,3 +36,5 @@ yarn-error.log*
 /src/components/Cart.css~
 /src/components/ModalDatos.js~
 /src/components/ModalFinalCompra.js~
+/src/components/ListaCategorias.css~
+/src/components/ModalFinalCompra.css~

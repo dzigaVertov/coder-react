@@ -60,11 +60,12 @@ function hacerCarrito() {
         },
 
         totalCompra() {
-            return (this.productos.reduce((accum, prod)=> accum + (prod.item.price * prod.quantity))).toFixed(2);
+            const totalCompra = this.productos.reduce((accum, prod)=> accum + (prod.item.price * prod.quantity), 0);          
+            return (totalCompra);
         },
 
         ivaCompra() {
-            return (this.totalCompra()*0.21).toFixed(2);
+            return ((this.totalCompra()*0.21));
         }
     };
 }
