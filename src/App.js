@@ -12,14 +12,15 @@ function App() {
         <CartContextProvider>
             <NavBar />
             <Routes>
-                <Route path='/' element={<Home />} />
-                <Route path='/productos' element={<ItemListContainer />} />
-                <Route path='/productos/categories/:id' element={<ItemListContainer />} />
-                <Route path='/item/:id' element={<ItemDetailContainer />} />
-                <Route path='/cart' element={<Cart />} />
+                <Route path='/coder-react' element={<Home />} />
+                <Route path='/coder-react/productos' element={<ItemListContainer />} />
+                <Route path='/coder-react/productos/categories/:id' element={<ItemListContainer />} />
+                <Route path='/coder-react/item/:id' element={<ItemDetailContainer />} />
+                <Route path='/coder-react/cart' element={<Cart />} />
+                <Route path='/coder-react/contacto' element={<Home />} />
             </Routes>
         </CartContextProvider>
-  );
+    );
 }
 
 export default App;

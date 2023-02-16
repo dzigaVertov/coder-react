@@ -18,7 +18,7 @@ const Cart = () => {
 
     return (
         <div className='carrito'>
-            {carrito.productos.length ? <ListaCarrito /> : <h1>No hay productos en el carrito</h1>}
+          {(carrito.productos && carrito.productos.length) ? <ListaCarrito /> : <h1>No hay productos en el carrito</h1>}
             <div className='botones'>
                 <Button className='btn-lista' onClick={vaciarCarrito} disabled={!carrito.productos.length}>Vaciar Carrito</Button>
                 <Button className='btn-lista' onClick={comprar} disabled={!carrito.productos.length}>Comprar</Button>
