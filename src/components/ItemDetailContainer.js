@@ -37,7 +37,7 @@ export default function ItemDetailContainer() {
     };
 
     const onTerminarCompra = () => {
-        navigate('/cart');
+        navigate('/coder-react/cart');
     };
 
 
