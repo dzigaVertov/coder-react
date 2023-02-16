@@ -47,8 +47,8 @@ function cartReducer(carrito, action) {
 
 function hacerCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
-    console.log('llamado');
-    return {
+    console.log('llamado', carrito.productos);
+    const carritoReturn = {
         productos: carrito.productos || [],
 
         buscarItem(id) {
@@ -69,6 +69,9 @@ function hacerCarrito() {
             return ((this.totalCompra() * 0.21));
         }
     };
+
+    carritoReturn.productos = [];
+    return carritoReturn;
 }
 
 const CartContextProvider = ({ children }) => {
