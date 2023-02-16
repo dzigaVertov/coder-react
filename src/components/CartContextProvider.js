@@ -21,7 +21,7 @@ function cartReducer(carrito, action) {
             return { ...carrito, productos: carrito.productos.filter(itm => itm.id != action.payload.item.id) };
         }
         case ACCIONES.AGREGAR_PRODUCTO: {
-            console.log(carrito.productos);
+            console.log(carrito);
             const idx = carrito.buscarItem(action.payload.item.id);
 
             if (idx === -1) {        // El producto no está en el carrito
