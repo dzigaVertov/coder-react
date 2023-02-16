@@ -71,6 +71,7 @@ function hacerCarrito() {
     };
 
     carritoReturn.productos = [];
+    console.log(carritoReturn.productos);
     return carritoReturn;
 }
 
