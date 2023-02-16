@@ -21,7 +21,7 @@ function cartReducer(carrito, action) {
             return { ...carrito, productos: carrito.productos.filter(itm => itm.id != action.payload.item.id) };
         }
         case ACCIONES.AGREGAR_PRODUCTO: {
-            console.log(carrito);
+
             const idx = carrito.buscarItem(action.payload.item.id);
 
             if (idx === -1) {        // El producto no está en el carrito
@@ -46,10 +46,13 @@ function cartReducer(carrito, action) {
 }
 
 function hacerCarrito() {
-    const carrito = JSON.parse(localStorage.getItem('carrito'));
-    console.log('llamado la puta madre', carrito.productos);
+    let carrito = JSON.parse(localStorage.getItem('carrito'));
+    if (!carrito || !carrito.productos) {
+        carrito = {productos: []};
+    }
+    
     const carritoReturn = {
-        productos: carrito.productos || [],
+        productos: carrito.productos,
 
         buscarItem(id) {
             return this.productos.findIndex(x => x.id === id);
@@ -69,9 +72,7 @@ function hacerCarrito() {
             return ((this.totalCompra() * 0.21));
         }
     };
-    console.log('carrito antes de setear: ', carritoReturn.productos);
-    // carritoReturn.productos = [];
-    // console.log('carrito despues de setear: ', carritoReturn.productos);
+
     return carritoReturn;
 }
 

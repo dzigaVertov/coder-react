@@ -40,8 +40,6 @@ export default function ItemDetailContainer() {
         navigate('/coder-react/cart');
     };
 
-    console.log(carrito);
-
     return (
         <Container className='d-flex justify-content-center align-content-center align-items-center ' >
             {item && <CardProducto stock={item.stock} producto={item} ancho_max={'400px'} detalle={true} />}
