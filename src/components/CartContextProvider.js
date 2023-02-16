@@ -70,8 +70,8 @@ function hacerCarrito() {
         }
     };
     console.log('carrito antes de setear: ', carritoReturn.productos);
-    carritoReturn.productos = [];
-    console.log('carrito despues de setear: ', carritoReturn.productos);
+    // carritoReturn.productos = [];
+    // console.log('carrito despues de setear: ', carritoReturn.productos);
     return carritoReturn;
 }
 
