@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useCarrito, ACCIONES } from './CartContextProvider.js';
 import ListaCarrito from './ListaCarrito.js';
 import './Cart.css';
@@ -18,13 +18,13 @@ const Cart = () => {
 
     return (
         <div className='carrito'>
-          {(carrito.productos && carrito.productos.length) ? <ListaCarrito /> : <h1>No hay productos en el carrito</h1>}
+            {(carrito.productos && carrito.productos.length) ? <ListaCarrito /> : <h1>No hay productos en el carrito</h1>}
             <div className='botones'>
-                <Button className='btn-lista' onClick={vaciarCarrito} disabled={!carrito.productos.length}>Vaciar Carrito</Button>
-                <Button className='btn-lista' onClick={comprar} disabled={!carrito.productos.length}>Comprar</Button>
+                {carrito.productos && <Button className='btn-lista' onClick={vaciarCarrito} disabled={!carrito.productos.length}>Vaciar Carrito</Button>}
+                {carrito.productos && <Button className='btn-lista' onClick={comprar} disabled={!carrito.productos.length}>Comprar</Button>}
             </div>
-          <ModalDatos show={showModalDatos} onEnviar={enviar} onCancelar={cancelar} />
-          <ModalFinalCompra show={showModalFinal} idCompra={idCompra} finalizar={finalizarCompra}/>
+            <ModalDatos show={showModalDatos} onEnviar={enviar} onCancelar={cancelar} />
+            <ModalFinalCompra show={showModalFinal} idCompra={idCompra} finalizar={finalizarCompra} />
 
         </div>
     );
@@ -37,17 +37,17 @@ const Cart = () => {
                 title: prod.item.title,
                 quantity: prod.quantity
             };
-        });        
+        });
         const total = (carrito.totalCompra() + carrito.ivaCompra()).toFixed(2);
         const date = serverTimestamp();
 
         return { comprador: datosComprador, productos, total, date };
     }
 
-    function guardarCompraDb(datosCompra){
+    function guardarCompraDb(datosCompra) {
         const db = getFirestore();
         const comprasCollection = collection(db, 'compras');
-        return addDoc(comprasCollection, datosCompra);        
+        return addDoc(comprasCollection, datosCompra);
     }
 
     function vaciarCarrito() {
@@ -60,7 +60,7 @@ const Cart = () => {
 
     function enviar(datos) {
         setShowModalDatos(false);
-        const datosCompra = armarCompra(datos);        
+        const datosCompra = armarCompra(datos);
         guardarCompraDb(datosCompra).then(docRef => confirmarCompra(docRef));
     }
 
@@ -68,20 +68,20 @@ const Cart = () => {
         setShowModalDatos(false);
     }
 
-    function confirmarCompra(docRef){       
+    function confirmarCompra(docRef) {
         setIdCompra(docRef.id);
         setShowModalFinal(true);
     }
 
-    function finalizarCompra(){
-        setShowModalFinal(false);        
+    function finalizarCompra() {
+        setShowModalFinal(false);
         vaciarCarrito();
         navigate('/');
     }
 
 
 
-    
+
 
 };
 
