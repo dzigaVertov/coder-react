@@ -69,9 +69,9 @@ function hacerCarrito() {
             return ((this.totalCompra() * 0.21));
         }
     };
-
+    console.log('carrito antes de setear: ', carritoReturn.productos);
     carritoReturn.productos = [];
-    console.log(carritoReturn.productos);
+    console.log('carrito despues de setear: ', carritoReturn.productos);
     return carritoReturn;
 }
 
