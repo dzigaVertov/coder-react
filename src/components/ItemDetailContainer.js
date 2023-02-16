@@ -40,7 +40,7 @@ export default function ItemDetailContainer() {
         navigate('/coder-react/cart');
     };
 
-
+    console.log(carrito);
 
     return (
         <Container className='d-flex justify-content-center align-content-center align-items-center ' >
