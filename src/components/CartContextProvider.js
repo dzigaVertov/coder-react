@@ -49,7 +49,7 @@ function hacerCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
     console.log('llamado');
     return {
-        productos: carrito ? carrito.productos : [],
+        productos: carrito.productos || [],
 
         buscarItem(id) {
             return this.productos.findIndex(x => x.id === id);
