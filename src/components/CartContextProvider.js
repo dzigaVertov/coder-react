@@ -47,7 +47,7 @@ function cartReducer(carrito, action) {
 
 function hacerCarrito() {
     const carrito = JSON.parse(localStorage.getItem('carrito'));
-    console.log('llamado', carrito.productos);
+    console.log('llamado la puta madre', carrito.productos);
     const carritoReturn = {
         productos: carrito.productos || [],
 
