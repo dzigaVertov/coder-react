@@ -56,24 +56,24 @@ function hacerCarrito() {
         },
 
         isInCart(id) {
-            
+
             return this.productos.some(x => x.id === id);
         },
 
         totalCompra() {
-            const totalCompra = this.productos.reduce((accum, prod)=> accum + (prod.item.price * prod.quantity), 0);          
+            const totalCompra = this.productos.reduce((accum, prod) => accum + (prod.item.price * prod.quantity), 0);
             return (totalCompra);
         },
 
         ivaCompra() {
-            return ((this.totalCompra()*0.21));
+            return ((this.totalCompra() * 0.21));
         }
     };
 }
 
 const CartContextProvider = ({ children }) => {
-
-    const [carrito, dispatch] = useReducer(cartReducer, hacerCarrito());
+    const carritoInicial = hacerCarrito();
+    const [carrito, dispatch] = useReducer(cartReducer, carritoInicial);
 
     // Persistir el carrito en localStorage
     useEffect(() => {
